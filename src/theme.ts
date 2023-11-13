@@ -79,20 +79,15 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: '150%',
       fontStyle: 'normal',
-      color: blackColor,
-      '@media (max-width:600px)': {
-        fontSize: '1.2rem',
-      },
+      color: grayColor
     },
     body2:{
       fontSize: '1.2rem',
       fontWeight: 400, 
       lineHeight: '150%',
       fontStyle: 'normal',
-      color: blackColor,
-      '@media (max-width:600px)': {
-        fontSize: '1rem',
-      },
+      color: grayColor,
+    
       subtitle1:undefined,
       subtitle2:undefined,
     }
@@ -103,6 +98,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           // Primary button styles
+          height: '4rem',
           '&.MuiButton-contained': {
             background: `var(--Purple, ${primaryColor})`,
             '&:active': {
