@@ -2,12 +2,12 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 
-import Home from "./pages/Home"
+import Router from "./router/Router"
 
 function App() {
 
   return (
-    <Home/>
+    <Router/>
   )
 }
 

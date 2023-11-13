@@ -1,11 +1,10 @@
 import {
     createBrowserRouter,
     RouterProvider,
-    Outlet,
-    
   } from "react-router-dom";
+  import Dashbpard from '@/layout/Dashboard.tsx';
 import { Login, Signup, Home, ForgotPassword } from '../pages';
-import Dashbpard from '@/layout/Dashboard';
+
 
 
   const router = createBrowserRouter(
