@@ -22,9 +22,7 @@ const Login = () => {
             <AuthWrapper>
                 <Typography variant='h1' > Netree </Typography>
 
-                <Box mt={8} sx={{
-                    // border: '1px solid black'
-                }} >
+                <Box mt={8}  >
                     <Typography gutterBottom variant="h2" >
                         Login
                     </Typography>
@@ -33,15 +31,15 @@ const Login = () => {
                     </Typography>
 
                     <Box component="form" >
-                        <Grid container xs={12} rowGap={3} >
+                        <Grid container rowGap={3} >
                             <Grid item xs={12} >
                                 <Input fullWidth label="Email" name="email" type="email" value={email} id="email" onChange={handleEmailChange} placeholder='Enter your email' />
                             </Grid>
                             <Grid item xs={12}>
                                 <Input label="Password" name="password" type="password" value={password} id="password" onChange={handlePasswordChange} placeholder='Enter your password' />
                             </Grid>
-                            <Grid xs={12} >
-                                <Button fullWidth variant="contained" >Login</Button>
+                            <Grid item xs={12} >
+                                <Button component={Link} to="/" fullWidth variant="contained" >Login</Button>
                             </Grid>
                         </Grid>
                     </Box>
