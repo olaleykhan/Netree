@@ -6,6 +6,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import BaseLabel from './BaseLabel';
 import { SxProps } from '@mui/system';
 import { ErrorMessage } from 'formik';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 interface Props {
   id: string;
@@ -58,6 +59,7 @@ const BaseSelect: React.FC<Props> = ({
       {label && <BaseLabel label={label} htmlFor={name} />}
       <Box width="100%">
         <Select
+          IconComponent={KeyboardArrowDownIcon}
           // defaultValue={defaultValue}
           displayEmpty
           disabled={disabled}
