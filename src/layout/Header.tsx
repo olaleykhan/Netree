@@ -15,8 +15,8 @@ function Header() {
     <AppBar position="static" sx={{ bgcolor: '#fff', boxShadow: 'none' }} >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Grid container direction="row" alignItems="center" wrap='nowrap' flexWrap='nowrap' >
-            <Grid item xs="auto" spacing="auto">
+          <Grid container direction="row" alignItems="center" wrap='nowrap'  spacing="auto" >
+            <Grid item xs="auto">
             <LogoDevIcon sx={{ mr: 1, fontSize: '3rem' }} color="primary" /> 
             </Grid>
             <Grid container item justifyContent="center">
