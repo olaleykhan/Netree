@@ -3,7 +3,7 @@ import {
     RouterProvider,
   } from "react-router-dom";
   import Dashbpard from '@/layout/Dashboard.tsx';
-import { Login, Signup, Home, ForgotPassword } from '../pages';
+import { Login, Signup, Home, ForgotPassword, Preview } from '../pages';
 
 
 
@@ -17,6 +17,10 @@ import { Login, Signup, Home, ForgotPassword } from '../pages';
             path: '/',
             element: <Home />,
           },
+          {
+            path: '/preview',
+            element: <Preview />,
+          }
      
         ]
       },

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -34,7 +35,7 @@ function Header() {
             </Grid>
             <Grid xs="auto" item>
 
-              <Button>
+              <Button component={Link} to="/preview" >
                 Preview
               </Button>
             </Grid>
