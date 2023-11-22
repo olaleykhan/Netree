@@ -12,7 +12,7 @@ interface Props extends OutlinedInputProps {
   id: string;
   placeholder?: string;
   error?: boolean;
-  type: string;
+  type?: string;
   helperText?: string | false;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   min?: number;
@@ -21,7 +21,7 @@ interface Props extends OutlinedInputProps {
 }
 export default ({
   name,
-  type,
+  type="text",
   id,
   label,
   secondaryLabel,
