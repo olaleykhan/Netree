@@ -33,7 +33,7 @@ import { Login, Signup, Home, ForgotPassword, Preview } from '../pages';
         element: <Signup />,
       },
       {
-        path:"/auth/forgot-password",
+        path:"/forgot-password",
         element: <ForgotPassword />,
       }
     ],
