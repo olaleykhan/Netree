@@ -7,8 +7,8 @@
   "author": "lekan.dev <realjoy9@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "dev:client": "cd ./client && yarn dev",
+    "dev": "yarn dev:client",
+    "dev:client": "cd client && yarn dev"
   },
   "dependencies": {
     "react": "^18.2.0",
