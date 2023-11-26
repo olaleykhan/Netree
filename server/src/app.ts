@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 const getAll = (req: Request, res: Response): void => {
-  res.status(200).json({ message: 'Hello World!' });
+  res.status(200).json({ message: 'Hello World! from Olalekan Abdulfatah' });
 };
 
 app.use('/api/v1/', getAll);

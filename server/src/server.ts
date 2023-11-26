@@ -1,8 +1,16 @@
-import app from './app.js';
+
+import app from './app';
+import 'dotenv/config';
+import connectDB from './connectDB';
 
 const PORT = process.env.PORT ?? 8000;
 
-app.listen(PORT, () => { console.log(`running on port : ${PORT}`); });
+async function startServer (): Promise<void> {
+  await connectDB();
+  app.listen(PORT, () => { console.log(`running on port : ${PORT}`); });
+}
+
+startServer();
 
 process.on('bad auth', (err: unknown) => {
   console.log('UNHANDLED REJECTION! 💥 Shutting down...');
