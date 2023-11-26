@@ -9,6 +9,11 @@
   "scripts": {
     "dev": "yarn dev:client",
     "dev:client": "cd client && yarn dev",
+    "dev:server": "cd server && yarn dev",
+    "build": "yarn build:client",
+    "build:client": "cd client && yarn build",
+    "build:server": "cd server && yarn build",
+    "install:server": "cd server && yarn install",
     "install:client": "cd client && yarn install",
     "install": "yarn install:client"
   }
