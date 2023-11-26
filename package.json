@@ -13,8 +13,5 @@
     "install:server": "cd server && yarn install",
     "install:client": "cd client && yarn install",
     "install": "yarn install:client"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
   }
 }
