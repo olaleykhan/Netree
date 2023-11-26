@@ -7,14 +7,14 @@
   "author": "lekan.dev <realjoy9@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn dev:client",
-    "dev:client": "cd client && yarn dev",
-    "dev:server": "cd server && yarn dev",
-    "build": "yarn build:client",
-    "build:client": "cd client && yarn build",
-    "build:server": "cd server && yarn build",
+    "dev": " concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
     "install:server": "cd server && yarn install",
     "install:client": "cd client && yarn install",
     "install": "yarn install:client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
