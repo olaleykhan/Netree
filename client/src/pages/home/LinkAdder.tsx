@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { Box, Card, CardMedia, Typography, Grid } from "@mui/material"
+import { Box, Card } from "@mui/material"
 import LinkFormCard from './LinkFormCard'
 
 const LinkAdder = () => {

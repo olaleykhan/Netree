@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { styled } from '@mui/system';
 
 // Define the colors
 const primaryColor = '#633CFF';

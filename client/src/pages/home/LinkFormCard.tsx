@@ -4,7 +4,6 @@ import Input from '@/components/base/Input'
 import BaseSelect from '@/components/base/BaseSelect'
 import { SelectChangeEvent } from '@mui/material/Select';
 import { LINK_OPTIONS } from './constants';
-import IconLink from "@/assets/images/icon-link.svg"
 import LinkIcon from '@mui/icons-material/Link';
 
 const LinkFormCard = () => {

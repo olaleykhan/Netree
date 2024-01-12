@@ -1,4 +1,3 @@
-import React from 'react'
 import getStarted from '@/assets/get-started.svg'
 import { Box, Card, CardMedia, Typography, Grid } from "@mui/material"
 const GetStarted = () => {

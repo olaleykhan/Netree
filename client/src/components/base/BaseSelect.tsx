@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from '@mui/material/MenuItem';
-import { Box, Grid, CardMedia } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import FormHelperText from '@mui/material/FormHelperText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import BaseLabel from './BaseLabel';
@@ -45,7 +45,6 @@ const BaseSelect: React.FC<Props> = ({
   sx,
   fullWidth = true,
   disabled,
-  defaultValue,
   borderColor = 'grey.900',
   touched,
   ...rest

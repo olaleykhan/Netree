@@ -19,15 +19,14 @@ interface Props extends OutlinedInputProps {
   max?: number;
   touched?: boolean;
 }
-export default ({
+const BaseInput =  ({
   name,
-  type="text",
+  type = "text",
   id,
   label,
   secondaryLabel,
   placeholder,
   error,
-  helperText,
   value,
   min,
   max,
@@ -62,3 +61,4 @@ export default ({
 };
 
 
+export default BaseInput

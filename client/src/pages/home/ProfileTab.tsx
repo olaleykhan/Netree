@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Card, CardMedia, Typography, Grid, Button, Paper } from '@mui/material'
+import { Box, Card, Typography, Button} from '@mui/material'
 import Input from '@/components/base/Input'
 
 const ProfileTab = () => {
