@@ -9,15 +9,19 @@ jobs:
   client-pipeline:
     runs-on: ubuntu-latest
     steps:
-      - run : echo "initiating deployment for client"
-      - name: get code
+      - run: echo "initiating deployment for client"
+      - name: Get code
         uses: actions/checkout@v4
       - run: echo "repo downloaded"
-      - name: Change to client dir
-        run: cd client && pwd && ls
-      - name: Install dependencies
-        run: yarn install
-      - name: Lint
-        run: yarn run lint
-      - name: Build app
-        run: yarn build
+      - name: Run script
+        run: |
+          echo "Changing to the client directory"
+          cd client
+          pwd
+          ls
+          echo "Installing dependencies"
+          yarn install
+          echo "Linting"
+          yarn run lint
+          echo "Building app"
+          yarn build
