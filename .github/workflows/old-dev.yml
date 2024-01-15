@@ -1,0 +1,68 @@
+name: "Netree Frontend CI Pipeline"
+run-name: "run name: netree frontend being deployed by ${{github.actor}}"
+on:
+  push:
+    branches:
+      - main
+      - 'dev/**'
+jobs:
+  lint-client:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "initiating deployment for client"
+      - name: Get code
+        uses: actions/checkout@v4
+      - run: echo "repo downloaded"
+      - name: Run script
+        run: |
+          echo "Changing to the client directory"
+          cd ./client
+          pwd
+          ls
+          echo "Installing dependencies"
+          yarn install
+          echo "Linting"
+          yarn run lint
+          echo "linting done| now building app"
+          yarn build
+  build-client-artifact:
+    needs: lint-client
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "checkout code base to have access"
+      - name: get code
+        uses: actions/checkout@v4
+      - run: |
+          echo "now building package to artifact....listing files"
+          ls
+          cd client
+          pwd
+          ls
+          echo "Installing dependencies"
+          yarn install
+          echo "ow building app"
+          yarn build
+          ls
+      - name: Upload a build Artifact
+        uses: actions/upload-artifact@v4.1.0
+        with:
+          name: netree-client-artifact
+          path : client/dist
+  deploy-client-artifact:
+    needs: build-client-artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v4.1.1
+        with:
+          name: netree-client-artifact
+      - name: output content of artifact
+        run: ls
+      - name: Deploy client
+        run: echo "deploying the client to ...."
+        
+        
+        
+
+
+            
