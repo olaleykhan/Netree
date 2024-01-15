@@ -58,7 +58,7 @@ jobs:
       - name: output content of artifact
         run: ls
       - name: Deploy client
-        run: "deploying the client to ...."
+        run: echo "deploying the client to ...."
         
         
         
