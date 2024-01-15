@@ -25,18 +25,18 @@ jobs:
           yarn run lint
           echo "linting done| now building app"
           yarn build
-  build-clint-artifact:
-    needs: client-pipeline
+  build-client-artifact:
+    needs: lint-client
     runs-on: ubuntu-latest
     steps:
       - run: |
           echo "now building package to artifact"
           cd client
       - name: Upload a build Artifact
-      uses: actions/upload-artifact@v4.1.0
-      with:
-        - name: netree-client-artifact
-        - path : client/dist
+        uses: actions/upload-artifact@v4.1.0
+        with:
+          name: netree-client-artifact
+          path : client/dist
   deploy-client-artifact:
     needs: build-client-artifact
     runs-on: ubuntu-latest
@@ -49,8 +49,9 @@ jobs:
         run: ls
       - name: Deploy client
         run: "deploying the client to ...."
-
-
+        
+        
+        
 
 
             
