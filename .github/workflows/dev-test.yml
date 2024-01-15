@@ -29,6 +29,8 @@ jobs:
     needs: lint-client
     runs-on: ubuntu-latest
     steps:
+      - run: pwd
+      - run: ls
       - run: |
           echo "now building package to artifact....listing files"
           ls
