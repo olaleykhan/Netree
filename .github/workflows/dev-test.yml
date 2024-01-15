@@ -16,7 +16,7 @@ jobs:
       - name: Run script
         run: |
           echo "Changing to the client directory"
-          cd client
+          cd ./client
           pwd
           ls
           echo "Installing dependencies"
@@ -30,7 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "now building package to artifact"
+          echo "now building package to artifact....listing files"
+          ls
           cd client
       - name: Upload a build Artifact
         uses: actions/upload-artifact@v4.1.0
