@@ -35,6 +35,13 @@ jobs:
           echo "now building package to artifact....listing files"
           ls
           cd client
+          pwd
+          ls
+          echo "Installing dependencies"
+          yarn install
+          echo "ow building app"
+          yarn build
+          ls
       - name: Upload a build Artifact
         uses: actions/upload-artifact@v4.1.0
         with:
