@@ -9,6 +9,16 @@ jobs:
         - run: echo "this job lints the codebase"
         - name: "get code using checkout"
           uses: actions/checkout@v4
+        - name: Cache node dependencies
+          id: yarn-cache-dir-path
+          run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+        - uses: actions/cache@v3
+          id: yarn-cache
+          with:
+            path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            restore-keys: |
+              ${{ runner.os }}-yarn-
         - name: "install and lint code"
           run: |
             echo "installing and linting repo"
@@ -56,10 +66,6 @@ jobs:
           run: ls
         - name: deploy artifact
           run: echo "deploying artidfact in...."
-
-
-          
-
 
 
             
