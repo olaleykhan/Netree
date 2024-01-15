@@ -29,8 +29,8 @@ jobs:
     needs: lint-client
     runs-on: ubuntu-latest
     steps:
-      - run: pwd
-      - run: ls
+      - run: echo "checkout code base to have access"
+      - uses: actions/checkout@4
       - run: |
           echo "now building package to artifact....listing files"
           ls
