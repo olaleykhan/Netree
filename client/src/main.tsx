@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <CssBaseline />
         <GlobalStyle />
       <App />
+      <p> main guy</p>
       </ThemeProvider>
     </StyledEngineProvider>
   </React.StrictMode>,
