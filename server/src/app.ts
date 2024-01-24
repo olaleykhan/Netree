@@ -1,6 +1,10 @@
 import express, { type Express, type Response, type Request, type NextFunction } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
+import helmet from "helmet";
+import passport, {Profile } from 'passport';
+// import by extracting GoogleStrategy from passport-google-oauth20
+import {Strategy as GoogleStrategy, VerifyCallback } from 'passport-google-oauth20'
 import router from './routes/router';
 import path from 'path';
 
@@ -10,7 +14,41 @@ app.use(cors());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+app.use(helmet());
+
+
 app.use(express.json());
+
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const AUTH_OPTIONS = {
+  clientID: GOOGLE_CLIENT_ID,
+  clientSecret: GOOGLE_CLIENT_SECRET,
+  callbackURL: "/auth/google/callback"
+}
+
+function verifyCallback(accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback) {
+  console.log(profile, "profile from google");
+    // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+  //   return cb(err, user);
+  // });
+  return done(null, profile);
+}
+passport.use(new GoogleStrategy(AUTH_OPTIONS, verifyCallback));
+// Save the session to the cookie
+passport.serializeUser((user:Express.User, done) => {
+  done(null, user );
+});
+
+// Read the session from the cookie
+passport.deserializeUser((id, done) => {
+  // User.findById(id).then(user => {
+  //   done(null, user);
+  // });
+  done(null, id);
+});
+
+
 app.use((req, res, next) => {
   req.params.reqTime = new Date().toISOString();
   next();
