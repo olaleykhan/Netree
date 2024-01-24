@@ -2,6 +2,7 @@ import express, { type Express, type Response, type Request, type NextFunction }
 import morgan from 'morgan';
 import cors from 'cors';
 import router from './routes/router';
+import path from 'path';
 
 
 const app: Express = express();
@@ -18,6 +19,8 @@ app.use((req, res, next) => {
 const getAll = (req: Request, res: Response): void => {
   res.status(200).json({ message: 'Hello World! from Olalekan Abdulfatah' });
 };
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/api/v1/', router);
 // app.all('*', (req, res, next) => {
@@ -30,6 +33,10 @@ app.use((err: Error & { statusCode: number }, req: Request, res: Response, next:
   // console.log(err.stack);
   res.status(err.statusCode).json({ error: err.message });
   next();
+});
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 export default app;
