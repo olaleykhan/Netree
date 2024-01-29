@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "watch-ts": "tsc -w",
-    "serve": "nodemon dist/server.js",
-    "dev": "concurrently \"yarn watch-ts\" \"yarn serve\"",
-    "start" : "yarn install && tsc && yarn serve"
+    "start": "nodemon dist/server.js",
+    "dev": "concurrently \"yarn watch-ts\" \"yarn start\"",
+    "serve": "tsc && node dist/server.js"
   },
   "dependencies": {
     "@types/validator": "^13.11.7",
