@@ -1,7 +1,6 @@
 name: Netree
 on:
   push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 jobs:
@@ -23,7 +22,7 @@ jobs:
       - name: install yarn
         uses: Borales/actions-yarn@v4.2.0
       - name: Use MongoDB from GitHub actions
-        uses: supercharge/mongodb-github-action@v2
+        uses:  supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - run: yarn run serve
