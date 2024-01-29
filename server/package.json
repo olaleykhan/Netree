@@ -7,7 +7,8 @@
   "scripts": {
     "watch-ts": "tsc -w",
     "serve": "nodemon dist/server.js",
-    "dev": "concurrently \"yarn watch-ts\" \"yarn serve\""
+    "dev": "concurrently \"yarn watch-ts\" \"yarn serve\"",
+    "start" : "yarn install && tsc && yarn serve"
   },
   "dependencies": {
     "@types/validator": "^13.11.7",

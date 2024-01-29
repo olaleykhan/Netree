@@ -12,7 +12,14 @@
     "dev:server": "npm run dev --prefix server",
     "install:server": "cd server && yarn install",
     "install:client": "cd client && yarn install",
+    "serve": "cd server && yarn start",
     "install": "yarn install:client",
     "lint": "echo \"this lint should not work... linting......\""
+  },
+  "dependencies": {
+    "cookie-session": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/cookie-session": "^2.0.48"
   }
 }
