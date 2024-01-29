@@ -19,7 +19,7 @@ const ProfileTab = () => {
     px:2.5,
    }} >
     <Box>
-            <Typography variant='h2' gutterBottom >Profil Details</Typography>
+            <Typography variant='h2' gutterBottom >Profile Details</Typography>
             <Typography variant='body1' gutterBottom >Add your details to create a personal touch to your profile.</Typography>
         </Box>
 
