@@ -14,13 +14,7 @@
     "dev:client": "npm run dev --prefix client",
     "dev:server": "cd server && yarn dev",
     "dev": " yarn run build:client && yarn run dev:server",
-    "start:server": "cd server && yarn serve",
+    "start:server": " cd server && sudo yarn serve",
     "start": "yarn run build:client && yarn run start:server"
-  },
-  "dependencies": {
-    "cookie-session": "^2.1.0"
-  },
-  "devDependencies": {
-    "@types/cookie-session": "^2.0.48"
   }
 }
