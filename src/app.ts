@@ -12,13 +12,6 @@ import router from './routes/router';
 import path from 'path';
 
 
-declare global {
-  namespace Express {
-      interface User {
-          id?: number | string;
-      }
-  }
-}
 
 // google auth options
 // TODO: move this to a config file
