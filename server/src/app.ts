@@ -3,6 +3,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from "helmet";
 import passport, {Profile } from 'passport';
+import swaggerJsDoc from 'swagger-jsdoc'
+import swaggerUI from 'swagger-ui-express';
 // import by extracting GoogleStrategy from passport-google-oauth20
 import {Strategy as GoogleStrategy, VerifyCallback } from 'passport-google-oauth20'
 import cookieSession from 'cookie-session';
@@ -70,6 +72,21 @@ app.use(helmet());
 
 
 app.use(express.json());
+
+// swagger  documentations
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: "Netree API",
+      version: '1.0.0',
+    },
+  },
+  apis: ["./src/routes*.ts"],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 
 app.use(cookieSession({

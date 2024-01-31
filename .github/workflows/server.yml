@@ -1,7 +1,6 @@
 name: Netree
 on:
   push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 jobs:
@@ -15,15 +14,21 @@ jobs:
         mongodb-version: ['6.3']
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: check natrix node versoon
+        run: |
+          node -v
+          echo "what is node version?"
+          echo ${{ matrix.node-version }}
       - name: Use Node.js version ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: install yarn
-        uses: Borales/actions-yarn@v4.2.0
+          node-version: ${{ matrix.node-version }}     
       - name: Use MongoDB from GitHub actions
-        uses: supercharge/mongodb-github-action@v2
+        uses:  supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
-      - run: yarn run serve
+      - name: install yarn
+        uses: Borales/actions-yarn@v4
+        with:
+          cmd: serve
