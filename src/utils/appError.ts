@@ -5,6 +5,8 @@ class AppError extends Error {
   path?: string;
   value?: string;
   errmsg?: string;
+  // eslint@typescript-eslint/no-explicit-any disanle that error
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errors?: Record<string, any>;
 
   constructor (message: string, statusCode: number) {
