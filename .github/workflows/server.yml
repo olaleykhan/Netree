@@ -4,31 +4,17 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  build:
-    env:
-      CI: true
-      MONGO_URL: mongodb://localhost/netree
-    strategy:
-      matrix:
-        node-version: [20.x]
-        mongodb-version: ['6.3']
+  test: 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: check natrix node versoon
-        run: |
-          node -v
-          echo "what is node version?"
-          echo ${{ matrix.node-version }}
-      - name: Use Node.js version ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}     
-      - name: Use MongoDB from GitHub actions
-        uses:  supercharge/mongodb-github-action@1.10.0
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
-      - name: install yarn
-        uses: Borales/actions-yarn@v4
-        with:
-          cmd: serve
+          node-version: 20.11.0
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run linting
+        run: npm run lint
